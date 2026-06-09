@@ -1,9 +1,13 @@
-package co.edu.udec;
+package co.edu.udec.sistemaacademico;
 
-import co.edu.udec.application.dto.RegistrarEstudianteRequest;
-import co.edu.udec.application.dto.RegistrarEstudianteResponse;
-import co.edu.udec.infrastructure.config.DependencyContainer;
-import co.edu.udec.infrastructure.controller.EstudianteController;
+
+import co.edu.udec.sistemaacademico.application.dto.ListarEstudianteResponse;
+import java.util.List;
+import co.edu.udec.sistemaacademico.application.dto.BuscarEstudianteResponse;
+import co.edu.udec.sistemaacademico.application.dto.RegistrarEstudianteRequest;
+import co.edu.udec.sistemaacademico.application.dto.RegistrarEstudianteResponse;
+import co.edu.udec.sistemaacademico.infrastructure.config.DependencyContainer;
+import co.edu.udec.sistemaacademico.infrastructure.controller.EstudianteController;
 
 public class Main {
 
@@ -46,5 +50,66 @@ public class Main {
                 "Grupo: "
                         + response.grupo()
         );
+
+        BuscarEstudianteResponse estudiante =
+                controller.buscar("2025001");
+
+        System.out.println();
+
+        System.out.println(
+                "=== ESTUDIANTE ENCONTRADO ==="
+        );
+
+        System.out.println(
+                "Matricula: "
+                        + estudiante.matricula()
+        );
+
+        System.out.println(
+                "Nombre: "
+                        + estudiante.nombre()
+        );
+
+        System.out.println(
+                "Correo: "
+                        + estudiante.correo()
+        );
+
+        System.out.println(
+                "Grupo: "
+                        + estudiante.grupo()
+        );
+
+        System.out.println();
+
+        System.out.println(
+                "=== LISTA DE ESTUDIANTES ==="
+        );
+
+        List<ListarEstudianteResponse> estudiantes =
+                controller.listar();
+
+        for (ListarEstudianteResponse e : estudiantes) {
+
+            System.out.println(
+                    "Matricula: " + e.matricula()
+            );
+
+            System.out.println(
+                    "Nombre: " + e.nombre()
+            );
+
+            System.out.println(
+                    "Correo: " + e.correo()
+            );
+
+            System.out.println(
+                    "Grupo: " + e.grupo()
+            );
+
+            System.out.println("------------------");
+        }
+
+
     }
 }

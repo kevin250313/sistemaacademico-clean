@@ -1,6 +1,6 @@
 package co.edu.udec.sistemaacademico.application.dto;
 
-public record RegistrarEstudianteRequest(
+public record BuscarEstudianteResponse(
         String matricula,
         String nombre,
         String correo,

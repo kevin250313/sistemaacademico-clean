@@ -1,6 +1,9 @@
-package co.edu.udec.infrastructure.repository;
+package co.edu.udec.sistemaacademico.infrastructure.repository;
 
-import co.edu.udec.application.ports.EstudianteRepository;
+import java.util.ArrayList;
+import java.util.List;
+
+import co.edu.udec.sistemaacademico.application.ports.EstudianteRepository;
 import co.edu.udec.sistemaacademico.domain.model.Estudiante;
 
 import java.util.HashMap;
@@ -26,5 +29,12 @@ public class InMemoryEstudianteRepository
             String matricula) {
 
         return estudiantes.get(matricula);
+    }
+    @Override
+    public List<Estudiante> listarTodos() {
+
+        return new ArrayList<>(
+                estudiantes.values()
+        );
     }
 }

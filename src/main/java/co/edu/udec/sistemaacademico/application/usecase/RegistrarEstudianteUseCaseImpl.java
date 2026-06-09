@@ -1,8 +1,8 @@
-package co.edu.udec.application.usecase;
+package co.edu.udec.sistemaacademico.application.usecase;
 
-import co.edu.udec.application.dto.RegistrarEstudianteRequest;
-import co.edu.udec.application.dto.RegistrarEstudianteResponse;
-import co.edu.udec.application.ports.EstudianteRepository;
+import co.edu.udec.sistemaacademico.application.dto.RegistrarEstudianteRequest;
+import co.edu.udec.sistemaacademico.application.dto.RegistrarEstudianteResponse;
+import co.edu.udec.sistemaacademico.application.ports.EstudianteRepository;
 import co.edu.udec.sistemaacademico.domain.factory.EstudianteFactory;
 import co.edu.udec.sistemaacademico.domain.model.Estudiante;
 

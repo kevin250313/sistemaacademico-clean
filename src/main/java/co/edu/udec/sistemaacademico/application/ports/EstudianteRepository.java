@@ -1,10 +1,16 @@
-package co.edu.udec.application.ports;
+package co.edu.udec.sistemaacademico.application.ports;
 
 import co.edu.udec.sistemaacademico.domain.model.Estudiante;
+
+import java.util.List;
 
 public interface EstudianteRepository {
 
     void guardar(Estudiante estudiante);
 
-    Estudiante buscarPorMatricula(String matricula);
+    Estudiante buscarPorMatricula(
+            String matricula
+    );
+
+    List<Estudiante> listarTodos();
 }

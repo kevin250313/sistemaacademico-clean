@@ -1,4 +1,4 @@
-package co.edu.udec.application.dto;
+package co.edu.udec.sistemaacademico.application.dto;
 
 public record RegistrarEstudianteResponse(
         String matricula,
