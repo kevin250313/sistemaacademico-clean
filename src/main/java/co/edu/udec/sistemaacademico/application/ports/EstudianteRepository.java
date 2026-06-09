@@ -13,4 +13,12 @@ public interface EstudianteRepository {
     );
 
     List<Estudiante> listarTodos();
+
+    void actualizar(
+            Estudiante estudiante
+    );
+
+    void eliminar(
+            String matricula
+    );
 }

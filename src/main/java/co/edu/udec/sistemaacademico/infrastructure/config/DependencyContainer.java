@@ -1,5 +1,11 @@
 package co.edu.udec.sistemaacademico.infrastructure.config;
 
+import co.edu.udec.sistemaacademico.application.usecase.EliminarEstudianteUseCase;
+import co.edu.udec.sistemaacademico.application.usecase.EliminarEstudianteUseCaseImpl;
+
+import co.edu.udec.sistemaacademico.application.usecase.ActualizarEstudianteUseCase;
+import co.edu.udec.sistemaacademico.application.usecase.ActualizarEstudianteUseCaseImpl;
+
 import co.edu.udec.sistemaacademico.application.usecase.ListarEstudiantesUseCase;
 import co.edu.udec.sistemaacademico.application.usecase.ListarEstudiantesUseCaseImpl;
 
@@ -19,6 +25,8 @@ public class DependencyContainer {
     private final RegistrarEstudianteUseCase registrarUseCase;
     private final BuscarEstudianteUseCase buscarUseCase;
     private final ListarEstudiantesUseCase listarUseCase;
+    private final ActualizarEstudianteUseCase actualizarUseCase;
+    private final EliminarEstudianteUseCase eliminarUseCase;
     private final EstudianteController controller;
 
     public DependencyContainer() {
@@ -41,11 +49,23 @@ public class DependencyContainer {
                         repository
                 );
 
+        this.actualizarUseCase =
+                new ActualizarEstudianteUseCaseImpl(
+                        repository
+                );
+
+        this.eliminarUseCase =
+                new EliminarEstudianteUseCaseImpl(
+                        repository
+                );
+
         this.controller =
                 new EstudianteController(
                         registrarUseCase,
                         buscarUseCase,
-                        listarUseCase
+                        listarUseCase,
+                        actualizarUseCase,
+                        eliminarUseCase
                 );
     }
 

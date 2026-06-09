@@ -1,5 +1,10 @@
 package co.edu.udec.sistemaacademico;
 
+import co.edu.udec.sistemaacademico.application.dto.EliminarEstudianteResponse;
+
+import co.edu.udec.sistemaacademico.application.dto.ActualizarEstudianteRequest;
+import co.edu.udec.sistemaacademico.application.dto.ActualizarEstudianteResponse;
+
 
 import co.edu.udec.sistemaacademico.application.dto.ListarEstudianteResponse;
 import java.util.List;
@@ -110,6 +115,78 @@ public class Main {
             System.out.println("------------------");
         }
 
+        System.out.println();
+
+        ActualizarEstudianteResponse actualizado =
+                controller.actualizar(
+                        new ActualizarEstudianteRequest(
+                                "2025001",
+                                "Kevin Antonio Gonzalez",
+                                "kevin@unicartagena.edu.co",
+                                "6A"
+                        )
+                );
+
+        System.out.println(
+                "=== ESTUDIANTE ACTUALIZADO ==="
+        );
+
+        System.out.println(
+                "Matricula: "
+                        + actualizado.matricula()
+        );
+
+        System.out.println(
+                "Nombre: "
+                        + actualizado.nombre()
+        );
+
+        System.out.println(
+                "Correo: "
+                        + actualizado.correo()
+        );
+
+        System.out.println(
+                "Grupo: "
+                        + actualizado.grupo()
+        );
+
+        System.out.println();
+
+        EliminarEstudianteResponse eliminado =
+                controller.eliminar(
+                        "2025001"
+                );
+
+        System.out.println(
+                "=== ELIMINAR ESTUDIANTE ==="
+        );
+
+        System.out.println(
+                eliminado.mensaje()
+        );
+
+        System.out.println();
+
+        BuscarEstudianteResponse verificacion =
+                controller.buscar(
+                        "2025001"
+                );
+
+        System.out.println(
+                "=== VERIFICACION ==="
+        );
+
+        if (verificacion == null) {
+
+            System.out.println(
+                    "Estudiante no encontrado"
+            );
+        }
+
 
     }
+
+
+
 }

@@ -37,4 +37,20 @@ public class InMemoryEstudianteRepository
                 estudiantes.values()
         );
     }
+    @Override
+    public void actualizar(
+            Estudiante estudiante) {
+
+        estudiantes.put(
+                estudiante.getMatricula().value(),
+                estudiante
+        );
+    }
+
+    @Override
+    public void eliminar(
+            String matricula) {
+
+        estudiantes.remove(matricula);
+    }
 }
